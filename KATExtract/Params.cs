@@ -5,7 +5,26 @@ namespace KATExtract
 {
     public class Params
     {
-        public static class Categorys
+        /// <summary>
+        /// Order const params
+        /// </summary>
+        public static class OrderByOptions
+        {
+            public const string SizeDescendent = @"\?field=size&sorder=desc";
+            public const string SizeAscendent = @"\?field=size&sorder=asc";
+            public const string FilesCountAscendent = @"\?field=files_count&sorder=asc";
+            public const string FilesCountDescendent = @"\?field=files_count&sorder=desc";
+            public const string TimesAddedAscendent = @"\?field=time_add&sorder=asc";
+            public const string TimesAddedDescendent = @"\?field=time_add&sorder=desc";
+            public const string SeddersAscendent = @"\?field=seeders&sorder=asc";
+            public const string SeddersDescendent = @"\?field=seeders&sorder=desc";
+            public const string LecheersAscendent = @"\?field=leechers&sorder=asc";
+            public const string LecheersDescendent = @"\?field=leechers&sorder=desc";
+        }
+        /// <summary>
+        /// Categories const params
+        /// </summary>
+        public static class Categories
         {
             public const string Any = "0";
 
@@ -144,6 +163,9 @@ namespace KATExtract
             }
 
         }
+        /// <summary>
+        /// Age / Added at const params
+        /// </summary>
         public static class Added
         {
             public const string Lasthour = "hour";
@@ -152,6 +174,9 @@ namespace KATExtract
             public const string Lastmonth = "month";
             public const string Lastyear = "year";
         }
+        /// <summary>
+        /// Movie or Tv Language enum
+        /// </summary>
         public enum MovieOrTvLanguages
         {
             English = 2,
@@ -203,6 +228,9 @@ namespace KATExtract
             Ukrainian = 40,
             Urdu = 50,
         }
+        /// <summary>
+        /// Games Platform enum
+        /// </summary>
         public enum GamePlatforms
         {
             Android = 4,
@@ -235,6 +263,8 @@ namespace KATExtract
             XboxOne = 67,
         }
 
+        internal int page = 1;
+        string orderBy;
         string words;
         string exactWords;
         string anyWords;
@@ -254,6 +284,10 @@ namespace KATExtract
         string tvepisode;
         GamePlatforms? gamePlatforms;
 
+        /// <summary>
+        /// All these words
+        /// Represents the query text to submit
+        /// </summary>
         public string Words
         {
             get
@@ -266,6 +300,11 @@ namespace KATExtract
                 words = value;
             }
         }
+
+        /// <summary>
+        /// This exact wording or phrase
+        /// Represents the query text to submit
+        /// </summary>
         public string ExactWords
         {
             get
@@ -278,6 +317,11 @@ namespace KATExtract
                 exactWords = value;
             }
         }
+
+        /// <summary>
+        /// Any of these words
+        /// Represents the query text to submit
+        /// </summary>  
         public string AnyWords
         {
             get
@@ -290,6 +334,11 @@ namespace KATExtract
                 anyWords = value;
             }
         }
+
+        /// <summary>
+        /// Subtract specified word
+        /// Represents the query text to submit
+        /// </summary> 
         public string SubstractWords
         {
             get
@@ -302,6 +351,11 @@ namespace KATExtract
                 substractWords = value;
             }
         }
+        /// <summary>
+        /// Category Of search
+        /// See Param.Categories to get string const
+        /// Exemple: Param.Categories.APPLICATIONS.Windows
+        /// </summary>
         public string Category
         {
             get
@@ -314,6 +368,9 @@ namespace KATExtract
                 category = value;
             }
         }
+        /// <summary>
+        /// Uploads by certain user
+        /// </summary>
         public string User
         {
             get
@@ -326,18 +383,28 @@ namespace KATExtract
                 user = value;
             }
         }
-        public string MinimumSeeds
+
+        /// <summary>
+        /// Minimal seeders filter
+        /// </summary>
+        public int MinimumSeeds
         {
             get
             {
-                return minimumSeeds;
+                return int.Parse(minimumSeeds);
             }
 
             set
             {
-                minimumSeeds = value;
+                minimumSeeds = "" + value;
             }
         }
+
+        /// <summary>
+        /// Added at
+        /// See Param.Added to get string const
+        /// Exemple: Param.Added.LastHour
+        /// </summary>
         public string AddedAt
         {
             get
@@ -350,18 +417,24 @@ namespace KATExtract
                 addedtipe = value;
             }
         }
-        public string NumberOfFiles
+        /// <summary>
+        /// Certain number of files
+        /// </summary>
+        public int NumberOfFiles
         {
             get
             {
-                return numberOfFiles;
+                return int.Parse(numberOfFiles);
             }
 
             set
             {
-                numberOfFiles = value;
+                numberOfFiles = "" + value;
             }
         }
+        /// <summary>
+        /// IMDb id
+        /// </summary>
         public string IMDBId
         {
             get
@@ -374,6 +447,9 @@ namespace KATExtract
                 IMDBId = value;
             }
         }
+        /// <summary>
+        /// TVMaze id	
+        /// </summary>
         public string TVMazeId
         {
             get
@@ -386,6 +462,9 @@ namespace KATExtract
                 TVMazeId = value;
             }
         }
+        /// <summary>
+        /// ISBN (10 or 13)
+        /// </summary>
         public string ISBN
         {
             get
@@ -398,6 +477,11 @@ namespace KATExtract
                 ISBN = value;
             }
         }
+
+        /// <summary>
+        /// Movie or TV show language	
+        /// see Params MovieOrTvLanguages enum
+        /// </summary>
         public MovieOrTvLanguages? MovieTvLanguage
         {
             get
@@ -410,6 +494,10 @@ namespace KATExtract
                 movieTvLanguage = value;
             }
         }
+        /// <summary>
+        /// Family Safety Filter
+        /// This option turns off all the pornographic content on the website
+        /// </summary>
         public bool? FamilySafetyFilter
         {
             get
@@ -422,6 +510,9 @@ namespace KATExtract
                 FamilySafetyFilter = value;
             }
         }
+        /// <summary>
+        /// Show only verified torrents
+        /// </summary>
         public bool? JustVerifedTorrents
         {
             get
@@ -434,6 +525,11 @@ namespace KATExtract
                 JustVerifedTorrents = value;
             }
         }
+        /// <summary>
+        /// For games only
+        /// See Param.GamePlatforms to get enum
+        /// Exemple: Param.GamePlatforms.Wii 
+        /// </summary>
         public GamePlatforms? GamePlatform
         {
             get
@@ -446,28 +542,53 @@ namespace KATExtract
                 gamePlatforms = value;
             }
         }
-        public string Tvseason
+        /// <summary>
+        /// For TV shows only
+        /// Certain season
+        /// </summary>
+        public int Tvseason
         {
             get
             {
-                return tvseason;
+                return int.Parse(tvseason);
             }
 
             set
             {
-                tvseason = value;
+                tvseason = "" + value;
             }
         }
-        public string Tvepisode
+        /// <summary>
+        /// For TV shows only
+        /// Certain episode
+        /// </summary>
+        public int Tvepisode
         {
             get
             {
-                return tvepisode;
+                return int.Parse(tvepisode);
             }
 
             set
             {
-                tvepisode = value;
+                tvepisode = "" + value;
+            }
+        }
+        /// <summary>
+        /// Order of torrents
+        /// See Param.OrderByOptions to get string const
+        /// Exemple: OrderByOptions.SeddersAscendent 
+        /// </summary>
+        public string OrderByOption
+        {
+            get
+            {
+                return orderBy;
+            }
+
+            set
+            {
+                orderBy = value;
             }
         }
 
@@ -511,62 +632,62 @@ namespace KATExtract
             }
             if (!String.IsNullOrEmpty(category))
             {
-                buider.Append("category:" + category);
+                buider.Append("category%3A" + category);
                 buider.Append("%20");
             }
             if (!String.IsNullOrEmpty(user))
             {
-                buider.Append("user:" + user);
+                buider.Append("user%3A" + user);
                 buider.Append("%20");
             }
             if (!String.IsNullOrEmpty(minimumSeeds))
             {
-                buider.Append("seeds:" + minimumSeeds);
+                buider.Append("seeds%3A" + minimumSeeds);
                 buider.Append("%20");
             }
             if (!String.IsNullOrEmpty(addedtipe))
             {
-                buider.Append("age:" + addedtipe);
+                buider.Append("age%3A" + addedtipe);
                 buider.Append("%20");
             }
             if (!String.IsNullOrEmpty(numberOfFiles))
             {
-                buider.Append("files:" + numberOfFiles);
+                buider.Append("files%3A" + numberOfFiles);
                 buider.Append("%20");
             }
             if (!String.IsNullOrEmpty(imdbId))
             {
-                buider.Append("imdb:" + imdbId);
+                buider.Append("imdb%3A" + imdbId);
                 buider.Append("%20");
             }
             if (!String.IsNullOrEmpty(tvMazeId))
             {
-                buider.Append("tv:" + tvMazeId);
+                buider.Append("tv%3A" + tvMazeId);
                 buider.Append("%20");
             }
             if (!String.IsNullOrEmpty(isbn))
             {
-                buider.Append("isbn:" + isbn);
+                buider.Append("isbn%3A" + isbn);
                 buider.Append("%20");
             }
             if (movieTvLanguage != null)
             {
-                buider.Append("lang_id:" + (int)movieTvLanguage);
+                buider.Append("lang_id%3A" + (int)movieTvLanguage);
                 buider.Append("%20");
             }
             if (familySafetyFilter != null)
             {
-                buider.Append("is_safe:" + (familySafetyFilter ?? false));
+                buider.Append("is_safe%3A" + (familySafetyFilter ?? false));
                 buider.Append("%20");
             }
             if (justVerifedTorrents != null)
             {
-                buider.Append("verified:" + (justVerifedTorrents ?? false));
+                buider.Append("verified%3A" + (justVerifedTorrents ?? false));
                 buider.Append("%20");
             }
             if (!String.IsNullOrEmpty(tvseason))
             {
-                buider.Append("season:" + tvseason);
+                buider.Append("season%3A" + tvseason);
                 buider.Append("%20");
             }
             if (!String.IsNullOrEmpty(tvepisode))
@@ -576,10 +697,13 @@ namespace KATExtract
             }
             if (gamePlatforms != null)
             {
-                buider.Append("platform_id:" + (int)gamePlatforms);
+                buider.Append("platform_id%3A" + (int)gamePlatforms);
             }
 
-            buider.Append("/");
+            buider.Append("/" + (page > 0 ? ""+ page : "" ));
+
+            if (!String.IsNullOrEmpty(orderBy))
+                buider.Append(orderBy);
 
             return buider.ToString();
         }
