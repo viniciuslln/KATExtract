@@ -71,21 +71,7 @@ namespace KATExtract
             }
         }
 
-        /// <summary>
-        /// Retrieve new amount of SearchResult
-        /// </summary>
-        /// <exception cref="KATParamsExeption">Throws a exeption if given params are incorrect</exception>
-        /// <returns></returns>
-        public List<SearchResult> getResults()
-        {
-            checkParams();
-            mainParams.page = 1;
-            List<SearchResult> currentSearch = KAT.getResult(mainParams).Result;
-            listOfListOfResult.Clear();
-            listOfListOfResult.Add(currentSearch);
 
-            return currentSearch;
-        }
 
         /// <summary>
         /// Retrieve new amount of SearchResult asynchronous
@@ -94,8 +80,7 @@ namespace KATExtract
         /// <returns></returns>
         public async Task<List<SearchResult>> getResultsAsync()
         {
-            if (listOfListOfResult.Count == 0)
-                return await getResultsAsync();
+          
 
             checkParams();
             mainParams.page = 1;
@@ -111,8 +96,11 @@ namespace KATExtract
         /// if there is no more pages, this will return first page results
         /// </summary>
         /// <returns></returns>
-        public List<SearchResult> nextPage()
+        public async Task<List<SearchResult>> nextPage()
         {
+            if (listOfListOfResult.Count == 0)
+                return await getResultsAsync();
+
             if (currentPage <= mainParams.page)
                 return listOfListOfResult.ElementAt(currentPage++);
 

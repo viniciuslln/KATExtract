@@ -692,7 +692,7 @@ namespace KATExtract
             }
             if (!String.IsNullOrEmpty(tvepisode))
             {
-                buider.Append("episode" + tvepisode);
+                buider.Append("episode%3A" + tvepisode);
                 buider.Append("%20");
             }
             if (gamePlatforms != null)
