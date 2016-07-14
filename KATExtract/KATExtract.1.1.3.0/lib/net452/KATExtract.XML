@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KATExtract</name>
+    </assembly>
+    <members>
+        <member name="M:KATExtract.KatSearch.getResultsAsync">
+            <summary>
+            Retrieve new amount of SearchResult asynchronous
+            </summary>
+            <exception cref="T:KATExtract.KATParamsExeption">Throws a exeption if given params are incorrect</exception>
+            <returns></returns>
+        </member>
+        <member name="M:KATExtract.KatSearch.nextPage">
+            <summary>
+            Retrieve next amount of SearchResult
+            if there is no more pages, this will return first page results
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KATExtract.KatSearch.nextPageAsync">
+            <summary>
+            Retrieve next amount of SearchResult asynchronous
+            if there is no more pages, this will return first page results
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KATExtract.KatSearch.previousPage">
+            <summary>
+            Retrieves the previous page amout result
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:KATExtract.Params.OrderByOptions">
+            <summary>
+            Order const params
+            </summary>
+        </member>
+        <member name="T:KATExtract.Params.Categories">
+            <summary>
+            Categories const params
+            </summary>
+        </member>
+        <member name="T:KATExtract.Params.Added">
+            <summary>
+            Age / Added at const params
+            </summary>
+        </member>
+        <member name="T:KATExtract.Params.MovieOrTvLanguages">
+            <summary>
+            Movie or Tv Language enum
+            </summary>
+        </member>
+        <member name="T:KATExtract.Params.GamePlatforms">
+            <summary>
+            Games Platform enum
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.Words">
+            <summary>
+            All these words
+            Represents the query text to submit
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.ExactWords">
+            <summary>
+            This exact wording or phrase
+            Represents the query text to submit
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.AnyWords">
+            <summary>
+            Any of these words
+            Represents the query text to submit
+            </summary>  
+        </member>
+        <member name="P:KATExtract.Params.SubstractWords">
+            <summary>
+            Subtract specified word
+            Represents the query text to submit
+            </summary> 
+        </member>
+        <member name="P:KATExtract.Params.Category">
+            <summary>
+            Category Of search
+            See Param.Categories to get string const
+            Exemple: Param.Categories.APPLICATIONS.Windows
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.User">
+            <summary>
+            Uploads by certain user
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.MinimumSeeds">
+            <summary>
+            Minimal seeders filter
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.AddedAt">
+            <summary>
+            Added at
+            See Param.Added to get string const
+            Exemple: Param.Added.LastHour
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.NumberOfFiles">
+            <summary>
+            Certain number of files
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.IMDBId">
+            <summary>
+            IMDb id
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.TVMazeId">
+            <summary>
+            TVMaze id	
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.ISBN">
+            <summary>
+            ISBN (10 or 13)
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.MovieTvLanguage">
+            <summary>
+            Movie or TV show language	
+            see Params MovieOrTvLanguages enum
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.FamilySafetyFilter">
+            <summary>
+            Family Safety Filter
+            This option turns off all the pornographic content on the website
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.JustVerifedTorrents">
+            <summary>
+            Show only verified torrents
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.GamePlatform">
+            <summary>
+            For games only
+            See Param.GamePlatforms to get enum
+            Exemple: Param.GamePlatforms.Wii 
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.Tvseason">
+            <summary>
+            For TV shows only
+            Certain season
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.Tvepisode">
+            <summary>
+            For TV shows only
+            Certain episode
+            </summary>
+        </member>
+        <member name="P:KATExtract.Params.OrderByOption">
+            <summary>
+            Order of torrents
+            See Param.OrderByOptions to get string const
+            Exemple: OrderByOptions.SeddersAscendent 
+            </summary>
+        </member>
+    </members>
+</doc>

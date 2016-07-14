@@ -517,12 +517,12 @@ namespace KATExtract
         {
             get
             {
-                return JustVerifedTorrents;
+                return justVerifedTorrents;
             }
 
             set
             {
-                JustVerifedTorrents = value;
+                justVerifedTorrents = value;
             }
         }
         /// <summary>
@@ -682,7 +682,7 @@ namespace KATExtract
             }
             if (justVerifedTorrents != null)
             {
-                buider.Append("verified%3A" + (justVerifedTorrents ?? false));
+                buider.Append("verified%3A" + ((justVerifedTorrents ?? false) ? "1" : "0"));
                 buider.Append("%20");
             }
             if (!String.IsNullOrEmpty(tvseason))
